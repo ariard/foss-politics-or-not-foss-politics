@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Some problems with current bitcoin core `MODERATION.md` - Meta - Delving Bitcoin</title>
+    <meta name="description" content="Following some moderation incident on the proposal to add CTV support on bitcoin core, I’ve opened a PR to remove the moderation guidelines (the MODERATION.md floating in the
+bitcoin-core-meta repo). I don’t think bitcoi&amp;hellip;">
+    <meta name="generator" content="Discourse 3.5.0.beta3-dev - https://github.com/discourse/discourse version f571c3c62e0285a48c4ec31a3501815302bbdffb">
+<link rel="icon" type="image/png" href="https://delvingbitcoin.org/uploads/default/optimized/1X/863d31b22a9d4d4072777bffb9b9ded86a1638bc_2_32x32.svg">
+<link rel="apple-touch-icon" type="image/png" href="https://delvingbitcoin.org/uploads/default/optimized/1X/863d31b22a9d4d4072777bffb9b9ded86a1638bc_2_180x180.svg">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111">
+
+<meta name="color-scheme" content="light dark">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://delvingbitcoin.org/t/some-problems-with-current-bitcoin-core-moderation-md/1616" />
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://delvingbitcoin.org/opensearch.xml" title="Delving Bitcoin Search">
+
+    <link href="/stylesheets/color_definitions_light_7_1_2aadf9c7fe92b1fe8dcdd8c1541161522c324b51.css?__ws=delvingbitcoin.org" media="(prefers-color-scheme: light)" rel="stylesheet" class="light-scheme" data-scheme-id="7"/><link href="/stylesheets/color_definitions_dark_1_1_180ebef16bc48ef3cd6c66ad9bc7a677c0371c7c.css?__ws=delvingbitcoin.org" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme" data-scheme-id="1"/>
+
+  <link href="/stylesheets/desktop_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+
+  <link href="/stylesheets/automation_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="/stylesheets/checklist_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="/stylesheets/discourse-cakeday_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-cakeday"  />
+  <link href="/stylesheets/discourse-data-explorer_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="/stylesheets/discourse-details_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="/stylesheets/discourse-graphviz_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-graphviz"  />
+  <link href="/stylesheets/discourse-lazy-videos_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="/stylesheets/discourse-local-dates_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="/stylesheets/discourse-math_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-math"  />
+  <link href="/stylesheets/discourse-narrative-bot_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="/stylesheets/discourse-presence_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="/stylesheets/discourse-reactions_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="/stylesheets/discourse-user-notes_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="/stylesheets/docker_manager_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="docker_manager"  />
+  <link href="/stylesheets/footnote_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="/stylesheets/poll_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="/stylesheets/spoiler-alert_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="/stylesheets/discourse-reactions_desktop_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="/stylesheets/poll_desktop_17b43a5274167e8ed04d7606b7fa1886a099f1df.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="/stylesheets/desktop_theme_3_381c33b61741f59b05bdce11bd9b0dcabd91fe02.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="3" data-theme-name="discotoc"/>
+<link href="/stylesheets/desktop_theme_6_554590fc6bbee1df3c69a554c409fa92991b1d73.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="6" data-theme-name="discourse plotly"/>
+<link href="/stylesheets/desktop_theme_2_2a61845c69610c9c5cd3e37c3eb8d0de8f8076c2.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="discourse-mermaid-theme-component"/>
+<link href="/stylesheets/desktop_theme_1_c77aa83e3ffe5bb7180e045150179294e7d86c5d.css?__ws=delvingbitcoin.org" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="1" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Some problems with current bitcoin core `MODERATION.md`&#39;" href="https://delvingbitcoin.org/t/some-problems-with-current-bitcoin-core-moderation-md/1616.rss" />
+    <meta property="og:site_name" content="Delving Bitcoin" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://delvingbitcoin.org/uploads/default/original/1X/863d31b22a9d4d4072777bffb9b9ded86a1638bc.svg" />
+<meta property="og:url" content="https://delvingbitcoin.org/t/some-problems-with-current-bitcoin-core-moderation-md/1616" />
+<meta name="twitter:url" content="https://delvingbitcoin.org/t/some-problems-with-current-bitcoin-core-moderation-md/1616" />
+<meta property="og:title" content="Some problems with current bitcoin core `MODERATION.md`" />
+<meta name="twitter:title" content="Some problems with current bitcoin core `MODERATION.md`" />
+<meta property="og:description" content="Following some moderation incident on the proposal to add CTV support on bitcoin core, I’ve opened a PR to remove the moderation guidelines (the MODERATION.md floating in the bitcoin-core-meta repo). I don’t think bitcoin core should have mod guidelines, not concerning consensus rules.  Philosophically, in consideration of bitcoin history with the block size war, there should be no formal governance, or even the gist of some “Impatience led various participants to advocate models that would priv..." />
+<meta name="twitter:description" content="Following some moderation incident on the proposal to add CTV support on bitcoin core, I’ve opened a PR to remove the moderation guidelines (the MODERATION.md floating in the bitcoin-core-meta repo). I don’t think bitcoin core should have mod guidelines, not concerning consensus rules.  Philosophically, in consideration of bitcoin history with the block size war, there should be no formal governance, or even the gist of some “Impatience led various participants to advocate models that would priv..." />
+<meta property="og:article:section" content="Meta" />
+<meta property="og:article:section:color" content="808281" />
+<meta property="article:published_time" content="2025-04-19T01:13:47+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">
+    Delving Bitcoin
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/some-problems-with-current-bitcoin-core-moderation-md/1616">Some problems with current bitcoin core `MODERATION.md`</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/meta/2" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Meta</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+    <div itemscope itemtype='http://schema.org/DiscussionForumPosting'>
+      <meta itemprop='headline' content='Some problems with current bitcoin core `MODERATION.md`'>
+      <link itemprop='url' href='https://delvingbitcoin.org/t/some-problems-with-current-bitcoin-core-moderation-md/1616'>
+      <meta itemprop='datePublished' content='2025-04-19T01:13:47Z'>
+        <meta itemprop='articleSection' content='Meta'>
+      <meta itemprop='keywords' content=''>
+      <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop='name' content='Delving Bitcoin'>
+      </div>
+
+
+          <div id='post_1'  class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <a itemprop="url" rel='nofollow' href='https://delvingbitcoin.org/u/ariard'><span itemprop='name'>ariard</span></a>
+                
+              </span>
+
+                <link itemprop="mainEntityOfPage" href="https://delvingbitcoin.org/t/some-problems-with-current-bitcoin-core-moderation-md/1616">
+
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2025-04-19T01:13:47Z' class='post-time'>
+                    April 19, 2025,  1:13am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-04-19T01:13:47Z'>
+              <span itemprop='position'>1</span>
+              </span>
+            </div>
+            <div class='post' itemprop='text'>
+              <p>Following some <a href="https://github.com/bitcoin/bitcoin/pull/31989#issuecomment-2702330203">moderation incident</a> on the proposal to add CTV support on bitcoin core, I’ve <a href="https://github.com/bitcoin-core/meta/pull/15">opened a PR</a> to remove the moderation guidelines (the <code>MODERATION.md</code> floating in the
+<code>bitcoin-core-meta</code> repo). I don’t think bitcoin core should have mod guidelines, not concerning consensus rules.</p>
+<p>Philosophically, in consideration of bitcoin history with the block size war, there should be no formal governance, or even the gist of some “<em>Impatience led various participants to advocate</em>
+<em>models that would privilege high-profile actors and grant them control over the direction of</em>
+<em>the protocol</em>”. See the <a href="https://medium.com/@bergealex4/the-tao-of-bitcoin-development-ff093c6155cd">The Tao of Bitcoin Development</a> essay from 2017. Yes you will find the “project management" in the <code>.md</code>, so it’s unclear what’s the goal.</p>
+<p>Legally, there is something called the <a href="https://en.wikipedia.org/wiki/Berne_Convention">Berne Convention of 1886</a>, it’s an IP treatise with 170+ countries are contracting parties. Almost all the historical or active development or organization stakeholders contributing to bitcoin dev are located in those countries. In its <a href="https://www.law.cornell.edu/treaties/berne/7bis.html">article 7bis</a>, it’s protecting what’s called joint authorship. Yes, joint authorship can be applied to open source projects. See <a href="https://ctlj.colorado.edu/wp-content/uploads/2018/09/3-Chestek-6.20.18-FINAL.pdf">A Theory of Jointauthorship for Free and Open Software Projects</a> from some 2017 FSF workshop.</p>
+<p>The <code>.md</code> has been acked by <a href="https://github.com/bitcoin-core/meta/pull/13#issuecomment-2748178454">~13 contributors</a> only, with somehow no respect for the hard
+contributed work of the ~1200 contributors that can be fetched from bitcoind git log, and as such there eventual right to consent or not to the <code>MODERATION.md</code>.</p>
+<p>Legally more, there is a UK judicial ruling of 2023, to which few formers or current maintainer(s) have been defendants (<a href="https://www.judiciary.uk/wp-content/uploads/2023/02/Tulip-v-Van-Der-Laan-judgment-030223.pdf">Tulip Trading Limited v Van Der Laan and ors [2023] EWCA Civ 83</a>). Within, they made the following defense “<em>They contend that they have nothing like the power or control</em>” on the bitcoin network and go to argue “<em>they are part of a very large, and shifting, group of contributors without an organisation or structure</em>” (quote from the judicial ruling). The ruling explicitly considers Github, "<em>with the relevant electronic password for the particular code database on GitHub</em>”.</p>
+<p>Now currently, there is a <code>.md</code>, with some specific contributors (“<em>the moderators</em>” and “<em>the maintainers</em>”) that can enforce <a href="https://github.com/bitcoin-core/meta/pull/14#issuecomment-2753889160">behavioral guidelines</a> on other contributors, decide what is “<em>on-topic</em>” / “<em>off-topic</em>”, decide what is related to “<em>project management</em>” and what is related to “<em>technical issues</em>”…I don’t know if it’s “<em>power</em>” or “<em>control</em>", though it doesn’t sound exactly like "<a href="https://bitcoincore.org/en/about/">janitorial roles</a>”…</p>
+<p>Somehow, there is a logical problem somewhere.</p>
+<p>I care about civility and courtesy in an internet community of contributors spread over the whole world, and treating with fairness and respect any contributor whatever the social background, however I don’t think at all the current <code>MODERATION.md</code> flies very well.</p>
+<p>Opening this as a “meta”, as I don’t see why it’s not a meta subject as long as it’s discussed with politeness and kindness. And it’s of interest to everyone in bitcoin.</p>
+            </div>
+
+            <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+              <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+              <meta itemprop="userInteractionCount" content="0" />
+              <span class='post-likes'></span>
+            </div>
+
+          </div>
+    </div>
+
+
+    
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>
